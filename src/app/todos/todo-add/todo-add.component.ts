@@ -21,6 +21,8 @@ export class TodoAddComponent  {
     if(this.txtInput.invalid){return}
 
     this.store.dispatch(actions.crear({texto:this.txtInput.value}))
+
+    this.txtInput.reset()
   }
 
 }
