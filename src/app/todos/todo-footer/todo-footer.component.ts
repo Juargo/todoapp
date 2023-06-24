@@ -1,5 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import * as actions from '../../filtro/filtro.actions';
+import * as actionsTodo from '../todo.actions';
+
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/app.reducer';
 import { Subscription } from 'rxjs';
@@ -30,6 +32,10 @@ export class TodoFooterComponent implements OnInit, OnDestroy {
 
   cambiarFiltro(filtro: actions.filtrosValidos): void {
     this.store.dispatch(actions.setFiltro({ filtro }));
+  }
+
+  limpiarCompletados(): void {
+    this.store.dispatch(actionsTodo.limpiarTodos());
   }
 
   ngOnDestroy(): void {
